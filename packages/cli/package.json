@@ -1,0 +1,42 @@
+{
+  "name": "aegisnode-cli",
+  "version": "1.0.1",
+  "description": "Windows security middleware CLI that intercepts, analyzes, and blocks malicious npm packages from AI coding agents",
+  "main": "dist/index.js",
+  "bin": {
+    "aegisnode": "dist/bin/aegisnode.js",
+    "aegisnode-proxy": "dist/bin/proxy.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "security",
+    "npm",
+    "proxy",
+    "windows",
+    "ai-safety",
+    "package-security"
+  ],
+  "author": "AegisNode",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "commander": "^12.0.0",
+    "express": "^5.2.1",
+    "fast-levenshtein": "^3.0.0",
+    "node-fetch": "^2.7.0",
+    "ora": "^5.4.1"
+  },
+  "devDependencies": {
+    "@types/fast-levenshtein": "^0.0.4",
+    "@types/node": "^20.0.0",
+    "@types/node-fetch": "^2.6.11",
+    "typescript": "^5.4.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

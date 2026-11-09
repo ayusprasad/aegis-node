@@ -1,0 +1,43 @@
+name: Automated Threat Intelligence Updater
+
+on:
+  schedule:
+    # Run every night at midnight UTC
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+    # Allow manual triggering from the GitHub Actions tab
+
+jobs:
+  update-blocklist:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: |
+          cd scripts
+          npm install unzipper node-fetch
+        
+      - name: Run Threat Intelligence Pipeline
+        run: node scripts/update-blocklist.js
+
+      - name: Check for changes
+        id: git-check
+        run: |
+          git diff --exit-code blocklist.json || echo "changes=true" >> $GITHUB_OUTPUT
+
+      - name: Commit and push if blocklist updated
+        if: steps.git-check.outputs.changes == 'true'
+        run: |
+          git config --global user.name "AegisNode Security Bot"
+          git config --global user.email "security-bot@aegisnode.local"
+          git add blocklist.json
+          git commit -m "security: auto-update blocklist with latest OSV threats"
+          git push
