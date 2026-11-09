@@ -1,0 +1,8 @@
+interface:
+  display_name: "AI npm Trust Gate"
+  short_description: "Evidence-based npm package and lockfile review"
+  brand_color: "#163A5F"
+  default_prompt: "Use $ai-npm-trust-gate to review this npm dependency change and report evidence, unknowns, and a decision."
+
+policy:
+  allow_implicit_invocation: true

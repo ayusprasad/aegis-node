@@ -89,6 +89,12 @@ npm install express
 
 ---
 
+## Agent skill companion
+
+For teams using AI coding agents, the repository also includes [AI npm Trust Gate](products/ai-npm-trust-gate/README.md): a reusable skill for reviewing proposed npm packages, dependency lockfile changes, and suspected package incidents. Its Agensi-ready ZIP is [here](products/ai-npm-trust-gate.zip), with listing copy in [products/AGENSI-LISTING.md](products/AGENSI-LISTING.md). The bundled scanner is offline and read-only; it reports review signals rather than certifying packages as safe.
+
+---
+
 ## 🤖 LLM Error Format
 
 When a package is blocked, this exact format is written to `stderr` so AI agents understand and stop retrying:

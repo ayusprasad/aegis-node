@@ -82,3 +82,8 @@ This document records all modifications made to transform the downloaded AegisNo
 - **File**: `.gitignore`
 - **Reason**: The web TypeScript build generated `tsconfig.tsbuildinfo`, which is local compiler cache rather than project source.
 - **Change**: Ignore TypeScript build-info files so generated compiler metadata is not committed.
+
+### 16. Sellable Agent Skill Package
+- **Files**: `products/ai-npm-trust-gate/SKILL.md`, `README.md`, `agents/openai.yaml`, `scripts/audit-npm-lock.mjs`, `references/*`, `examples/sample-review.md`, `products/ai-npm-trust-gate.zip`, `products/AGENSI-LISTING.md`, and the root `README.md`
+- **Reason**: The project already addresses npm package threats, but it had no portable workflow for coding agents or marketplace-ready skill package.
+- **Change**: Added an evidence-led preflight/change-review/incident-triage skill, an offline read-only npm lockfile scanner, supporting decision and report references, a clearly fictional example, a correctly nested upload ZIP, and listing/pricing copy. The product states its limits and avoids safety guarantees.
